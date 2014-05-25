@@ -50,6 +50,10 @@
 		A17535D91930C90D00744A55 /* weather-snow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A17535BF1930C90D00744A55 /* weather-snow@2x.png */; };
 		A17535DA1930C90D00744A55 /* weather-tstorm.png in Resources */ = {isa = PBXBuildFile; fileRef = A17535C01930C90D00744A55 /* weather-tstorm.png */; };
 		A17535DB1930C90D00744A55 /* weather-tstorm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A17535C11930C90D00744A55 /* weather-tstorm@2x.png */; };
+		A17535DF1930D80900744A55 /* SWClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A17535DE1930D80900744A55 /* SWClient.m */; };
+		A17535E21930D87D00744A55 /* SWManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A17535E11930D87D00744A55 /* SWManager.m */; };
+		A17535E51930D8EA00744A55 /* SWCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = A17535E41930D8EA00744A55 /* SWCondition.m */; };
+		A17535E81930D91100744A55 /* SWDailyForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = A17535E71930D91100744A55 /* SWDailyForecast.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +115,14 @@
 		A17535BF1930C90D00744A55 /* weather-snow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather-snow@2x.png"; sourceTree = "<group>"; };
 		A17535C01930C90D00744A55 /* weather-tstorm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather-tstorm.png"; sourceTree = "<group>"; };
 		A17535C11930C90D00744A55 /* weather-tstorm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather-tstorm@2x.png"; sourceTree = "<group>"; };
+		A17535DD1930D80900744A55 /* SWClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWClient.h; sourceTree = "<group>"; };
+		A17535DE1930D80900744A55 /* SWClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWClient.m; sourceTree = "<group>"; };
+		A17535E01930D87D00744A55 /* SWManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWManager.h; sourceTree = "<group>"; };
+		A17535E11930D87D00744A55 /* SWManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWManager.m; sourceTree = "<group>"; };
+		A17535E31930D8EA00744A55 /* SWCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCondition.h; sourceTree = "<group>"; };
+		A17535E41930D8EA00744A55 /* SWCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCondition.m; sourceTree = "<group>"; };
+		A17535E61930D91100744A55 /* SWDailyForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDailyForecast.h; sourceTree = "<group>"; };
+		A17535E71930D91100744A55 /* SWDailyForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDailyForecast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +193,15 @@
 				A1677F511930B99C006B7C52 /* SWAppDelegate.m */,
 				A1677F531930B99C006B7C52 /* SimpleWeather.xcdatamodeld */,
 				A1677F481930B99C006B7C52 /* Supporting Files */,
-				A175359F1930BF4E00744A55 /* SWController.h */,
-				A17535A01930BF4E00744A55 /* SWController.m */,
+				A17535DC1930D7D600744A55 /* ViewController */,
+				A17535DD1930D80900744A55 /* SWClient.h */,
+				A17535DE1930D80900744A55 /* SWClient.m */,
+				A17535E01930D87D00744A55 /* SWManager.h */,
+				A17535E11930D87D00744A55 /* SWManager.m */,
+				A17535E31930D8EA00744A55 /* SWCondition.h */,
+				A17535E41930D8EA00744A55 /* SWCondition.m */,
+				A17535E61930D91100744A55 /* SWDailyForecast.h */,
+				A17535E71930D91100744A55 /* SWDailyForecast.m */,
 			);
 			path = SimpleWeather;
 			sourceTree = "<group>";
@@ -256,6 +275,15 @@
 				A17535C11930C90D00744A55 /* weather-tstorm@2x.png */,
 			);
 			path = "Weather Icons";
+			sourceTree = "<group>";
+		};
+		A17535DC1930D7D600744A55 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A175359F1930BF4E00744A55 /* SWController.h */,
+				A17535A01930BF4E00744A55 /* SWController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,9 +444,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1677F521930B99C006B7C52 /* SWAppDelegate.m in Sources */,
+				A17535E21930D87D00744A55 /* SWManager.m in Sources */,
+				A17535E81930D91100744A55 /* SWDailyForecast.m in Sources */,
 				A1677F4E1930B99C006B7C52 /* main.m in Sources */,
 				A1677F551930B99C006B7C52 /* SimpleWeather.xcdatamodeld in Sources */,
 				A17535A11930BF4E00744A55 /* SWController.m in Sources */,
+				A17535DF1930D80900744A55 /* SWClient.m in Sources */,
+				A17535E51930D8EA00744A55 /* SWCondition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
