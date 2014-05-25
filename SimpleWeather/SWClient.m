@@ -61,4 +61,32 @@
         return [MTLJSONAdapter modelOfClass:[SWCondition class] fromJSONDictionary:json error:nil];
     }];
 }
+
+- (RACSignal *)fetchHourlyForecastForLocation:(CLLocationCoordinate2D)coordinate {
+    NSString *urlString = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/forecast?lat=%f&lon=%f&units=imperial&cnt=12",coordinate.latitude, coordinate.longitude];
+    NSURL *url = [NSURL URLWithString:urlString];
+    return [[self fetchJSONFromURL:url] map:^(NSDictionary *json) {
+        RACSequence *list = [json[@"list"] rac_sequence];
+        return [[list map:^(NSDictionary *item) {
+            return [MTLJSONAdapter modelOfClass:[SWCondition class] fromJSONDictionary:item error:nil];
+        }] array];
+    }];
+}
+
+- (RACSignal *)fetchDailyForecastForLocation:(CLLocationCoordinate2D)coordinate {
+    NSString *urlString = [NSString stringWithFormat:@"http://api.openweathermap.org/data/2.5/forecast/daily?lat=%f&lon=%f&units=imperial&cnt=7",coordinate.latitude, coordinate.longitude];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    // Use the generic fetch method and map results to convert into an array of Mantle objects
+    return [[self fetchJSONFromURL:url] map:^(NSDictionary *json) {
+        // Build a sequence from the list of raw JSON
+        RACSequence *list = [json[@"list"] rac_sequence];
+        
+        // Use a function to map results from JSON to Mantle objects
+        return [[list map:^(NSDictionary *item) {
+            return [MTLJSONAdapter modelOfClass:[SWDailyForecast class] fromJSONDictionary:item error:nil];
+        }] array];
+    }];
+}
+
 @end
